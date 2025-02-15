@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:practise_app/products.dart'; // Ensure correct import
+import 'package:practise_app/products.dart';
+import 'package:practise_app/sideBar.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -7,34 +8,15 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: NavBar(),
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 10, top: 10),
-          child: Container(
-            height: 50,
-            width: 50,
-            decoration: BoxDecoration(
-              color: Colors.grey,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: IconButton(
-              onPressed: () {
-                print("Hello");
-              },
-              icon: const Icon(
-                Icons.arrow_back,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
         actions: [
           const Padding(
-            padding: EdgeInsets.only(right: 10, top: 10),
+            padding: EdgeInsets.only(right: 10, top: 10, bottom: 10),
             child: CircleAvatar(
-              radius: 20, // Reduce size to prevent overflow
-              backgroundImage: NetworkImage(
-                "https://tse3.mm.bing.net/th?id=OIP.S8IBjyi8BerWc2MUb-S7LQHaEo&pid=Api&P=0&h=220",
+              radius: 25, // Reduce size to prevent overflow
+              backgroundImage: AssetImage(
+                "assets/images/profilephoto.jpg",
               ),
             ),
           ),
@@ -119,7 +101,6 @@ class HomePage extends StatelessWidget {
 
               // Products GridView (Ensure it's properly implemented)
               Container(
-                // Give it a defined height
                 child: Products(),
               ),
             ],
